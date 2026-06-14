@@ -13,8 +13,19 @@ st.set_page_config(
 
 
 # Load model
-model = pickle.load(open('model.pkl', 'rb'))
-columns = pickle.load(open('columns.pkl', 'rb'))
+st.write("App started successfully")
+
+try:
+    model = pickle.load(open('model.pkl', 'rb'))
+    st.success("model.pkl loaded")
+except Exception as e:
+    st.error(f"Model Error: {e}")
+
+try:
+    columns = pickle.load(open('columns.pkl', 'rb'))
+    st.success("columns.pkl loaded")
+except Exception as e:
+    st.error(f"Columns Error: {e}")
 
 st.markdown("""
 # 💻 Laptop Price Predictor
